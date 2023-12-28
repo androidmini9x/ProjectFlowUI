@@ -1,14 +1,19 @@
 import { lazy } from 'react';
 import { useRoutes, Navigate } from 'react-router';
 
-const LoginPage = lazy(() => import('../pages/Login/index'));
-const NotFoundPage = lazy(() => import('../pages/NotFound/index'));
+const LoginPage = lazy(() => import('../pages/Login'));
+const RegisterPage = lazy(() => import('../pages/Register'));
+const NotFoundPage = lazy(() => import('../pages/NotFound'));
 
 function Router() {
   const routes = useRoutes([
     {
       path: 'login',
       element: <LoginPage />,
+    },
+    {
+      path: 'register',
+      element: <RegisterPage />,
     },
     {
       path: '404',
