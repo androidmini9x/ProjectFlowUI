@@ -22,6 +22,8 @@ import AccountTreeRoundedIcon from '@mui/icons-material/AccountTreeRounded';
 
 import UserContext from '../../context/store';
 
+import RouterWrap from '../../route/components/routeWrapper';
+
 const validationSchema = yup.object({
   email: yup
     .string('Enter your email')
@@ -186,7 +188,7 @@ export default function Login() {
                 <Typography variant="body2" sx={{ mt: 2, mb: 5 }}>
                   Don’t have an account?
                   <Link
-                    // component={RouterLink}
+                    component={RouterWrap}
                     href="/register"
                     variant="subtitle2"
                     sx={{ ml: 0.5 }}
