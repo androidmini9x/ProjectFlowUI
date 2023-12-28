@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 
 import UserContext from './context/store';
+import Router from './route/routes';
 
 function App() {
   const [authed, setAuth] = useState({
@@ -45,9 +46,7 @@ function App() {
 
   return (
     <UserContext.Provider value={store}>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router />
     </UserContext.Provider>
   );
 }
