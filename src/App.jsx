@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 
+import ThemeProvider from './common/theme/index';
 import UserContext from './context/store';
 import Router from './route/routes';
 
@@ -45,9 +46,11 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider value={store}>
-      <Router />
-    </UserContext.Provider>
+    <ThemeProvider>
+      <UserContext.Provider value={store}>
+        <Router />
+      </UserContext.Provider>
+    </ThemeProvider>
   );
 }
 
