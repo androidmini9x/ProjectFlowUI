@@ -1,4 +1,3 @@
-/* eslint-disable operator-linebreak */
 import PropTypes from 'prop-types';
 import { memo, forwardRef } from 'react';
 

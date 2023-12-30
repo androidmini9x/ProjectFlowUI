@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { useRoutes, Navigate } from 'react-router';
+import { useRoutes, Navigate, Outlet } from 'react-router';
 
 import PrivateRoute from './components/privateRoute';
 import DashboardLayout from '../common/layouts/dashboard';
@@ -7,6 +7,7 @@ import DashboardLayout from '../common/layouts/dashboard';
 const LoginPage = lazy(() => import('../pages/Login'));
 const RegisterPage = lazy(() => import('../pages/Register'));
 const NotFoundPage = lazy(() => import('../pages/NotFound'));
+const HomePage = lazy(() => import('../pages/Home'));
 
 function Router() {
   const routes = useRoutes([
@@ -15,12 +16,12 @@ function Router() {
         <PrivateRoute>
           <DashboardLayout>
             <Suspense>
-              <h1>Hello, World</h1>
+              <Outlet />
             </Suspense>
           </DashboardLayout>
         </PrivateRoute>
       ),
-      index: true,
+      children: [{ element: <HomePage />, index: true }],
     },
     {
       path: 'login',

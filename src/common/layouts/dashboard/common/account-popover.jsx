@@ -59,7 +59,6 @@ export default function AccountPopover() {
           background: (theme) => alpha(theme.palette.grey[500], 0.08),
           ...(open && {
             background: (theme) =>
-              // eslint-disable-next-line implicit-arrow-linebreak
               `linear-gradient(135deg, ${theme.palette.primary.light} 0%, ${theme.palette.primary.main} 100%)`,
           }),
         }}
