@@ -8,6 +8,7 @@ const LoginPage = lazy(() => import('../pages/Login'));
 const RegisterPage = lazy(() => import('../pages/Register'));
 const NotFoundPage = lazy(() => import('../pages/NotFound'));
 const HomePage = lazy(() => import('../pages/Home'));
+const ProjectPage = lazy(() => import('../pages/Project'));
 
 function Router() {
   const routes = useRoutes([
@@ -21,7 +22,13 @@ function Router() {
           </DashboardLayout>
         </PrivateRoute>
       ),
-      children: [{ element: <HomePage />, index: true }],
+      children: [
+        { element: <HomePage />, index: true },
+        {
+          path: 'project',
+          children: [{ element: <ProjectPage />, index: true }],
+        },
+      ],
     },
     {
       path: 'login',
