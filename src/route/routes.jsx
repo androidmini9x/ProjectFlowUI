@@ -12,6 +12,7 @@ const ProjectPage = lazy(() => import('../pages/Project'));
 const ProjectCreatePage = lazy(() => import('../pages/Project/ProjectCreate'));
 const ProjectEditPage = lazy(() => import('../pages/Project/ProjectEdit'));
 const ProjectDetailPage = lazy(() => import('../pages/Project/ProjectDetail'));
+const TaskCreatePage = lazy(() => import('../pages/Task/TaskCreate'));
 
 function Router() {
   const routes = useRoutes([
@@ -31,9 +32,10 @@ function Router() {
           path: 'project',
           children: [
             { element: <ProjectPage />, index: true },
-            { path: ':id', element: <ProjectDetailPage /> },
             { path: 'create', element: <ProjectCreatePage /> },
+            { path: ':id', element: <ProjectDetailPage /> },
             { path: ':id/edit', element: <ProjectEditPage /> },
+            { path: ':id/task/create', element: <TaskCreatePage /> },
           ],
         },
       ],
