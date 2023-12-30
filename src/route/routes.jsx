@@ -14,6 +14,7 @@ const ProjectEditPage = lazy(() => import('../pages/Project/ProjectEdit'));
 const ProjectDetailPage = lazy(() => import('../pages/Project/ProjectDetail'));
 const TaskCreatePage = lazy(() => import('../pages/Task/TaskCreate'));
 const TaskEditPage = lazy(() => import('../pages/Task/TaskEdit'));
+const TaskDetailPage = lazy(() => import('../pages/Task'));
 
 function Router() {
   const routes = useRoutes([
@@ -37,6 +38,7 @@ function Router() {
             { path: ':id', element: <ProjectDetailPage /> },
             { path: ':id/edit', element: <ProjectEditPage /> },
             { path: ':id/task/create', element: <TaskCreatePage /> },
+            { path: ':id/task/:task_id', element: <TaskDetailPage /> },
             { path: ':id/task/:task_id/edit', element: <TaskEditPage /> },
           ],
         },
