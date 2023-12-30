@@ -31,5 +31,6 @@ module.exports = {
     'react/jsx-curly-newline': 0,
     'implicit-arrow-linebreak': 0,
     'no-console': 0,
+    camelcase: 0,
   },
 };
