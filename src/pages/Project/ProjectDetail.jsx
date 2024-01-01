@@ -39,6 +39,7 @@ function ProjectDetail() {
   const [page, setPage] = useState(0);
   const [pageTeam, setPageTeam] = useState(0);
   const [filtered, setFiltered] = useState([]);
+  const [hidden, setHidden] = useState(true);
   const [filterName, setFilterName] = useState('');
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [rowsPerPageTeam, setRowsPerPageTeam] = useState(5);
@@ -226,6 +227,7 @@ function ProjectDetail() {
             <TableToolbar
               filterName={filterName}
               onFilterName={handleFilterByName}
+              onHiddenFin={setHidden}
             />
             <TableContainer sx={{ overflow: 'unset' }}>
               <Table sx={{ minWidth: 800 }}>
@@ -242,6 +244,12 @@ function ProjectDetail() {
                 />
                 <TableBody>
                   {(filterName ? filtered : task)
+                    // eslint-disable-next-line no-confusing-arrow
+                    .filter((e) =>
+                      hidden
+                        ? new Date() < new Date(`${e.end} 00:00:00`)
+                        : true,
+                    )
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((row) => (
                       <TableRowTask
@@ -251,7 +259,6 @@ function ProjectDetail() {
                         description={row.description}
                         start={row.start}
                         end={row.end}
-                        status="active"
                         handleDelete={deleteTask}
                       />
                     ))}

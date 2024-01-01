@@ -24,10 +24,27 @@ export default function TableRowTask({
   description,
   start,
   end,
-  status,
   handleDelete,
 }) {
   const [open, setOpen] = useState(null);
+
+  const getStatus = () => {
+    const startDate = new Date(`${start} 00:00:00`);
+    const endDate = new Date(`${end} 00:00:00`);
+    const today = new Date();
+
+    if (startDate > today) {
+      return 'upcoming';
+    }
+
+    if (endDate > today) {
+      return 'active';
+    }
+
+    return 'finished';
+  };
+
+  const status = getStatus();
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
@@ -62,7 +79,17 @@ export default function TableRowTask({
         <TableCell align="center">{end}</TableCell>
 
         <TableCell>
-          <Chip label={status} />
+          <Chip
+            label={status}
+            color={
+              // eslint-disable-next-line no-nested-ternary
+              status === 'active'
+                ? 'success'
+                : status === 'upcoming'
+                  ? 'primary'
+                  : 'error'
+            }
+          />
         </TableCell>
 
         <TableCell align="right">
@@ -111,6 +138,5 @@ TableRowTask.propTypes = {
   end: PropTypes.any,
   name: PropTypes.any,
   start: PropTypes.any,
-  status: PropTypes.string,
   handleDelete: PropTypes.func,
 };

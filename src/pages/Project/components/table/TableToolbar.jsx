@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 
+import Switch from '@mui/material/Switch';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
 
 // ----------------------------------------------------------------------
@@ -12,6 +13,7 @@ export default function TableToolbar({
   numSelected,
   filterName,
   onFilterName,
+  onHiddenFin,
 }) {
   return (
     <Toolbar
@@ -26,25 +28,31 @@ export default function TableToolbar({
         }),
       }}
     >
-      {numSelected > 0 ? (
-        <Typography component="div" variant="subtitle1">
-          {numSelected}
-          selected
-        </Typography>
-      ) : (
-        <OutlinedInput
-          value={filterName}
-          onChange={onFilterName}
-          placeholder="Search tasks..."
-          startAdornment={
-            <InputAdornment position="start">
-              <ManageSearchIcon
-                sx={{ color: 'text.disabled', width: 20, height: 20 }}
-              />
-            </InputAdornment>
-          }
-        />
-      )}
+      <OutlinedInput
+        value={filterName}
+        onChange={onFilterName}
+        placeholder="Search tasks..."
+        startAdornment={
+          <InputAdornment position="start">
+            <ManageSearchIcon
+              sx={{ color: 'text.disabled', width: 20, height: 20 }}
+            />
+          </InputAdornment>
+        }
+      />
+      <FormControlLabel
+        control={
+          <Switch
+            defaultChecked
+            color="warning"
+            onChange={() => {
+              onHiddenFin((prev) => !prev);
+            }}
+          />
+        }
+        label="Hidden Finished"
+        labelPlacement="start"
+      />
     </Toolbar>
   );
 }
@@ -53,4 +61,5 @@ TableToolbar.propTypes = {
   numSelected: PropTypes.number,
   filterName: PropTypes.string,
   onFilterName: PropTypes.func,
+  onHiddenFin: PropTypes.func,
 };

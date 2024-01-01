@@ -30,6 +30,7 @@ module.exports = {
     'react/jsx-wrap-multilines': 0,
     'react/jsx-curly-newline': 0,
     'implicit-arrow-linebreak': 0,
+    'function-paren-newline': 0,
     'no-console': 0,
     camelcase: 0,
   },
