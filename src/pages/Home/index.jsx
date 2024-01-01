@@ -66,7 +66,7 @@ function Home() {
         <Grid container spacing={3}>
           <Grid xs={12} sm={6}>
             <AppWidgetSummary
-              title="Your own projects"
+              title="Projects you are mange"
               total={projects.filter((e) => e.owner === authed.user._id).length}
               color="success"
               icon={<img alt="icon" src="/assets/icons/ic_glass_bag.png" />}
@@ -75,7 +75,7 @@ function Home() {
 
           <Grid xs={12} sm={6}>
             <AppWidgetSummary
-              title="Team projects"
+              title="Projects you are participating with"
               total={projects.filter((e) => e.owner !== authed.user._id).length}
               color="info"
               icon={<img alt="icon" src="/assets/icons/ic_glass_users.png" />}

@@ -188,7 +188,7 @@ function ProjectDetail() {
           justifyContent="space-between"
           mb={5}
         >
-          <Typography variant="h4">Info Project</Typography>
+          <Typography variant="h4">Project Details</Typography>
         </Stack>
 
         <Grid xs={12} md={6} lg={8} sx={{ py: 2, backgroundColor: 'white' }}>
