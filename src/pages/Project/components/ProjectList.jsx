@@ -37,7 +37,7 @@ export default function ProjectList({
 
       {list.length === 0 && (
         <Alert severity="info" sx={{ m: 3 }}>
-          You don&apost have any Project Here.
+          You don&#39;t have any Project Here.
         </Alert>
       )}
 
