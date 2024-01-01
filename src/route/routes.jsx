@@ -17,6 +17,7 @@ const TaskEditPage = lazy(() => import('../pages/Task/TaskEdit'));
 const TaskDetailPage = lazy(() => import('../pages/Task'));
 const InvitePage = lazy(() => import('../pages/Invite'));
 const ProfilePage = lazy(() => import('../pages/Profile'));
+const InvitationPage = lazy(() => import('../pages/Invitation'));
 
 function Router() {
   const routes = useRoutes([
@@ -46,6 +47,7 @@ function Router() {
           ],
         },
         { path: 'profile', element: <ProfilePage /> },
+        { path: 'invitation', element: <InvitationPage /> },
       ],
     },
     {
