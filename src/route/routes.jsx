@@ -16,6 +16,7 @@ const TaskCreatePage = lazy(() => import('../pages/Task/TaskCreate'));
 const TaskEditPage = lazy(() => import('../pages/Task/TaskEdit'));
 const TaskDetailPage = lazy(() => import('../pages/Task'));
 const InvitePage = lazy(() => import('../pages/Invite'));
+const ProfilePage = lazy(() => import('../pages/Profile'));
 
 function Router() {
   const routes = useRoutes([
@@ -44,6 +45,7 @@ function Router() {
             { path: ':id/task/:task_id/edit', element: <TaskEditPage /> },
           ],
         },
+        { path: 'profile', element: <ProfilePage /> },
       ],
     },
     {
