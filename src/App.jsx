@@ -3,6 +3,7 @@ import { useState, useEffect, useMemo } from 'react';
 import ThemeProvider from './common/theme/index';
 import UserContext from './context/store';
 import Router from './route/routes';
+import Loading from './components/Loading';
 
 function App() {
   const [authed, setAuth] = useState({
@@ -44,6 +45,10 @@ function App() {
 
     checkValidToken();
   }, []);
+
+  if (authed.state === 'none') {
+    return <Loading />;
+  }
 
   return (
     <ThemeProvider>
